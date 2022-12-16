@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Leds</title>
+    <link rel="stylesheet" href="assets/style/css/style.css">
+    <link rel="shortcut icon" href="assets/image/favicon.ico" type="image/x-icon">
+    <script src="bundle.js"></script>
+    <script src="https://kit.fontawesome.com/82bb25904d.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="wrapper main-wrapper" id="container">
+
+        <header class="main-header header"></header>
+
+        <main class="main-content content">
+            <!-- <h2>Click nos led para acender seu arduino</h2> -->
+            <section class="section led-controls">
+
+                <header>
+                    <h1>Control the lights</h1>
+                </header>
+                
+                <div class="content">
+                    <p>Click on LED to switch it's light</p>
+                    <form action="" id="led-form">
+                        <ul id="led_list">
+                            <li class="field">
+                                <div class="wrapper">
+                                    <input type="checkbox" name="led__state" id="red_led">
+                                    <div class="field__image" data-led="red">
+                                        <img src="assets/image/led_icons/red_led_switched-on.png" class="led__icon" alt="red_led-icon">
+                                    </div>
+                                </div>
+                                <label for="red_led" class="led__name"> Red Led </label>
+                            </li>
+                            <li class="field">
+                                <div class="wrapper">
+                                    <input type="checkbox" name="led__state" id="green_led">
+                                    <div class="field__image" data-led="green">
+                                        <img src="assets/image/led_icons/green_led_switched-on.png" class="led__icon" alt="green_led-icon">
+                                    </div>
+                                </div>
+                                <label for="green_led" class="led__name">Green Led</label>
+                            </li>
+                            <li class="field">
+                                <div class="wrapper">
+                                    <input type="checkbox" name="led__state" id="blue_led">
+                                    <div class="field__image" data-led="blue">
+                                        <img src="assets/image/led_icons/blue_led_switched-on.png" class="led__icon" alt="blue_led-icon">
+                                    </div>
+                                </div>
+                                <label for="blue_led" class="led__name"> Blue Led</label>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+</body>
+</html>
