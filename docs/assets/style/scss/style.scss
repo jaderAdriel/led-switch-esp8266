@@ -8,14 +8,26 @@
     color: inherit;
     border: 0;
     outline: none;
+    text-decoration: none;
 }
 
+$sys-c-background : #fff;
+$sys-c-primary-100 : #fff;
+$sys-c-text : rgb(0, 0, 0);
 
 
 html, body {
     width: 100%;
     height: fit-content;
     overflow: auto;
+    background-color: $sys-c-background;
+    color: $sys-c-text;
+}
+
+.main-wrapper {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
 }
 
 #container, .main-content {
@@ -34,7 +46,7 @@ html, body {
     
     #led_list {
         width: 100%;
-        max-width: 45em;
+        max-width: 70em;
         height: auto;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
@@ -42,15 +54,13 @@ html, body {
 
         .field {
             position: relative;
-            height: 10em;
+            height: 11em;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;            border-radius: 5px;
             padding: 1.4em;
-
             
 
             .wrapper {
@@ -61,11 +71,18 @@ html, body {
             }
 
             input[name='led__state'] {
+                position: absolute;
+                left: 0;
+                z-index: 1;
                 width: 100%;
                 height: 100%;
+                opacity: 0;
+                
+                background-color: none;
                 -webkit-appearance: none;
                 -moz-appearance: none;
                 appearance: none;
+
 
                 &:checked + .field__image {
 
@@ -106,7 +123,8 @@ html, body {
                 top: 0;
                 width: 100%;
                 height: 100%;
-                z-index: -10;
+                z-index: 0;
+                background-color: none;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -130,14 +148,13 @@ html, body {
                     font-size: 0.7em;
                     left: 0;
                     top: -0.6em;
-                    color: gray;
                 }
             }
         }
     }
 }
 
-.section.led-controls {
+.section.led-controls, .section {
     width: 100%;
     padding: 4em;
 
@@ -153,9 +170,22 @@ html, body {
     }
     .content {
         p {
-            padding: 0 0 0.6em 0;
+            padding: 0 0 1.6em 0;
             font-family: 'Gugi', Arial, Helvetica, sans-serif;
             color: gray;
         }
+    }
+}
+
+#credits {
+    .person a {
+        padding: 0 0 0.6em 0;
+        display: flex; 
+        gap: 0.4em;
+        font-family: 'Gugi', Arial, Helvetica, sans-serif;
+        color: rgb(59, 59, 59);
+    }
+    i {
+        color: blue;
     }
 }

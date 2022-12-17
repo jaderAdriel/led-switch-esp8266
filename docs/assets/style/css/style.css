@@ -7,12 +7,21 @@
   color: inherit;
   border: 0;
   outline: none;
+  text-decoration: none;
 }
 
 html, body {
   width: 100%;
   height: fit-content;
   overflow: auto;
+  background-color: #fff;
+  color: rgb(0, 0, 0);
+}
+
+.main-wrapper {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
 }
 
 #container, .main-content {
@@ -29,7 +38,7 @@ html, body {
 }
 #led-form #led_list {
   width: 100%;
-  max-width: 45em;
+  max-width: 70em;
   height: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
@@ -37,12 +46,12 @@ html, body {
 }
 #led-form #led_list .field {
   position: relative;
-  height: 10em;
+  height: 11em;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   border-radius: 5px;
   padding: 1.4em;
 }
@@ -53,8 +62,13 @@ html, body {
   width: 4em;
 }
 #led-form #led_list .field input[name=led__state] {
+  position: absolute;
+  left: 0;
+  z-index: 1;
   width: 100%;
   height: 100%;
+  opacity: 0;
+  background-color: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -87,7 +101,8 @@ html, body {
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: -10;
+  z-index: 0;
+  background-color: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -110,29 +125,39 @@ html, body {
   font-size: 0.7em;
   left: 0;
   top: -0.6em;
-  color: gray;
 }
 
-.section.led-controls {
+.section.led-controls, .section {
   width: 100%;
   padding: 4em;
 }
-.section.led-controls .content {
+.section.led-controls .content, .section .content {
   margin-top: 1em;
 }
 @media only screen and (max-width: 600px) {
-  .section.led-controls {
+  .section.led-controls, .section {
     padding: 1em;
   }
 }
-.section.led-controls header {
+.section.led-controls header, .section header {
   font-family: "Gugi", Arial, Helvetica, sans-serif;
   font-size: 1.4em;
 }
-.section.led-controls .content p {
-  padding: 0 0 0.6em 0;
+.section.led-controls .content p, .section .content p {
+  padding: 0 0 1.6em 0;
   font-family: "Gugi", Arial, Helvetica, sans-serif;
   color: gray;
+}
+
+#credits .person a {
+  padding: 0 0 0.6em 0;
+  display: flex;
+  gap: 0.4em;
+  font-family: "Gugi", Arial, Helvetica, sans-serif;
+  color: rgb(59, 59, 59);
+}
+#credits i {
+  color: blue;
 }
 
 /*# sourceMappingURL=style.css.map */
