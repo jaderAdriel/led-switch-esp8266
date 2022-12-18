@@ -5,21 +5,21 @@
 // Include Firebase ESP8266 library (this library)
 #include <FirebaseESP8266.h>
 
-#define WIFI_SSID "Qual a senha do wifi?"
-#define WIFI_PASSWORD "Farofa123"
+#define WIFI_SSID ""
+#define WIFI_PASSWORD ""
 
 // Insert Firebase project API Key
-#define API_KEY "AIzaSyDwa6dcBGeQ5_Br26Ffxhc0fESnhsz-0Bc"
+#define API_KEY ""
 
 // Insert RTDB URLefine the RTDB URL
-#define DATABASE_URL "https://leds-ea76c-default-rtdb.firebaseio.com/"
+#define DATABASE_URL ""
 
 // Define Firebase objects
 FirebaseData fbdo;
 FirebaseAuth auth;
 FirebaseConfig config;
 
-#define FIREBASE_HOST "leds-ea76c-default-rtdb.firebaseio.com"
+#define FIREBASE_HOST ""
 #define FIREBASE_AUTH "c4aGbLMAvlu7Y0pdvE1cqcvnmFMXeKV8BjmZLWqf"
 
 #define RED_LED_PIN   4
