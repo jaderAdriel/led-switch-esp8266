@@ -17,6 +17,14 @@
     background-color: rgb(31, 31, 31);
     color: #ffffff;
   }
+  .subtitle {
+    color: #c8c8c8;
+  }
+}
+@media (prefers-color-scheme: light) {
+  .subtitle {
+    color: gray;
+  }
 }
 html, body {
   width: 100%;
@@ -201,16 +209,28 @@ main {
   padding: 4em;
   padding-top: 2em;
   background-color: #2f2f2f;
-  color: #FFF;
 }
 @media (prefers-color-scheme: dark) {
   #footer {
     background-color: #000000;
+    color: #FFF;
+  }
+  #footer .person a {
+    color: rgba(255, 255, 255, 0.7333333333);
+  }
+  #footer i {
+    color: rgb(255, 255, 255);
   }
 }
 @media (prefers-color-scheme: light) {
   #footer {
-    background-color: #2f2f2f;
+    background-color: #f2f2f2;
+  }
+  #footer .person a {
+    color: rgba(37, 37, 37, 0.733);
+  }
+  #footer i {
+    color: #000;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -233,16 +253,12 @@ main {
 #footer #credits p {
   padding: 0 0 0.6em 0;
   font-family: "Gugi", Arial, Helvetica, sans-serif;
-  color: rgb(218, 218, 218) fff18;
 }
 #footer #credits .person a {
   padding: 0 0 0.6em 0;
   display: flex;
   gap: 0.4em;
   font-family: "Gugi", Arial, Helvetica, sans-serif;
-}
-#footer #credits .person a i {
-  color: rgb(255, 255, 255);
 }
 
 /*# sourceMappingURL=style.css.map */
