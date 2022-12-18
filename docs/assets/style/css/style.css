@@ -14,7 +14,7 @@
 /*  colors variable */
 @media (prefers-color-scheme: dark) {
   html, body {
-    background-color: rgb(31, 31, 31);
+    background-color: #191A19;
     color: #ffffff;
   }
   .subtitle {
@@ -56,7 +56,7 @@ html, body {
   max-width: 70em;
   height: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
   gap: 1em;
 }
 #led-form #led_list .field {
@@ -76,13 +76,12 @@ html, body {
 }
 @media (prefers-color-scheme: dark) {
   #led-form #led_list .field {
-    box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 3px, rgba(255, 255, 255, 0.4) 0px 1px 2px;
-    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: rgba(175, 175, 175, 0.25) 0px 0px 0px 1px;
   }
 }
 @media (prefers-color-scheme: light) {
   #led-form #led_list .field {
-    box-shadow: rgba(128, 128, 128, 0.4) 0px 1px 3px, rgba(128, 128, 128, 0.4) 0px 1px 2px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 0px 0px 1px;
   }
 }
 #led-form #led_list .field .wrapper {
@@ -124,6 +123,9 @@ html, body {
 #led-form #led_list .field input[name=led__state]:checked + .field__image[data-led=yellow] .led__icon {
   filter: drop-shadow(0 -1mm 8mm rgb(255, 255, 0)) drop-shadow(0 -1mm 6mm rgb(255, 255, 0));
 }
+#led-form #led_list .field input[name=led__state]:checked + .field__image[data-led=blue] .led__icon {
+  filter: drop-shadow(0 -1mm 8mm rgb(0, 0, 255)) drop-shadow(0 -1mm 6mm rgb(0, 0, 255));
+}
 #led-form #led_list .field .led__name {
   font-family: "Gugi", cursive;
   text-transform: uppercase;
@@ -141,6 +143,9 @@ html, body {
   }
   #led-form #led_list .field .led__name[for=red_led] {
     color: rgb(var(--tone), 0, 0);
+  }
+  #led-form #led_list .field .led__name[for=blue_led] {
+    color: rgb(0, 0, var(--tone));
   }
 }
 #led-form #led_list .field .field__image {
@@ -205,14 +210,14 @@ main {
 
 #footer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
   padding: 4em;
   padding-top: 2em;
   background-color: #2f2f2f;
 }
 @media (prefers-color-scheme: dark) {
   #footer {
-    background-color: #000000;
+    background-color: rgba(4, 41, 58, 0.4196078431);
     color: #FFF;
   }
   #footer .person a {
@@ -241,11 +246,20 @@ main {
 #footer #logo {
   width: 100%;
   display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
-#footer #logo__media {
+@media only screen and (max-width: 600px) {
+  #footer #logo {
+    padding-top: 1em;
+    justify-content: center;
+    align-items: center;
+  }
+}
+#footer #logo .logo__media {
   width: 100%;
-  max-width: 10em;
-  height: 4em;
+  max-width: 12em;
+  height: auto;
 }
 #footer #credits {
   padding-top: 0;

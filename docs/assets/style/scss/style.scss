@@ -33,7 +33,7 @@ $c-background-theme-light : rgb(255, 255, 255);
 $c-text-theme-light : #000000;
 $c-subtitle-theme-light : gray;
 
-$c-background-theme-dark : rgb(31, 31, 31);
+$c-background-theme-dark : #191A19;
 $c-text-theme-dark : #ffffff;
 $c-subtitle-theme-dark : #c8c8c8;
 
@@ -88,7 +88,7 @@ html, body {
         max-width: 70em;
         height: auto;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
         gap: 1em;
 
         .field {
@@ -105,13 +105,12 @@ html, body {
                 height: 11em;
             }
             @media (prefers-color-scheme: dark) {
-                box-shadow: rgb(255, 255, 255, 0.4) 0px 1px 3px,rgb(255, 255, 255, 0.4) 0px 1px 2px;
-                background-color: rgb(255, 255, 255, 0.05);
+                box-shadow: rgba(175, 175, 175, 0.25) 0px 0px 0px 1px;
                 
             }
 
             @media (prefers-color-scheme: light) {
-                box-shadow: $c-neutral-02 0px 1px 3px,$c-neutral-02 0px 1px 2px;
+                box-shadow: rgba(0, 0, 0, 0.07) 0px 0px 0px 1px;
             }
 
             .wrapper {
@@ -169,6 +168,11 @@ html, body {
                                 drop-shadow($offsetX $offsetY calc($blur - 2mm) rgb(255, 255, 0));
                         
                     }
+                    &[data-led='blue'] .led__icon{
+                        filter: drop-shadow($offsetX $offsetY $blur rgb(0, 0, 255)) 
+                                drop-shadow($offsetX $offsetY calc($blur - 2mm) rgb(0, 0, 255));
+                        
+                    }
                 }
             }
 
@@ -187,6 +191,9 @@ html, body {
                     }
                     &[for="red_led"] {
                         color: rgb(var(--tone), 0, 0);
+                    }
+                    &[for="blue_led"] {
+                        color: rgb(0, 0, var(--tone));
                     }
                 }
 
@@ -266,13 +273,13 @@ main {
 
 #footer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
     padding: 4em;
     padding-top: 2em;
     background-color: #2f2f2f;
 
     @media (prefers-color-scheme: dark) {
-        background-color: #000000;
+        background-color: #04293a6b;
         color: #FFF;
         .person a {
             color: #fffb;
@@ -299,10 +306,17 @@ main {
     #logo {
         width: 100%;
         display: flex;
-        &__media {
+        flex-direction: column;
+        gap: 1em;
+        @media only screen and (max-width: 600px) {
+            padding-top: 1em;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo__media {
             width: 100%;
-            max-width: 10em;
-            height: 4em;
+            max-width: 12em;
+            height: auto;
         }
     }
     #credits {
