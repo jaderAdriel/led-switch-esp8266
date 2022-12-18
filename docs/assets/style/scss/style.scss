@@ -277,12 +277,12 @@ main {
         padding: 1em;
     }
     #logo {
+        width: 100%;
         display: flex;
-        justify-content: center;
         &__media {
             width: 100%;
-            max-width: 20em;
-            height: auto;
+            max-width: 10em;
+            height: 4em;
         }
     }
     #credits {

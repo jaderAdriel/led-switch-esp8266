@@ -219,13 +219,13 @@ main {
   }
 }
 #footer #logo {
+  width: 100%;
   display: flex;
-  justify-content: center;
 }
 #footer #logo__media {
   width: 100%;
-  max-width: 20em;
-  height: auto;
+  max-width: 10em;
+  height: 4em;
 }
 #footer #credits {
   padding-top: 0;
