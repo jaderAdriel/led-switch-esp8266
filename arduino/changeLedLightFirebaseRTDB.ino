@@ -152,9 +152,6 @@ void initWiFi()
 void lightsInit(){
   int i = 0;
   for (i ; i < 9; i++) {
-   
-    digitalWrite(RED_LED_PIN, LOW);
-    digitalWrite(YELLOW_LED_PIN, HIGH);
 
     if (i%3 == 1)
     {
