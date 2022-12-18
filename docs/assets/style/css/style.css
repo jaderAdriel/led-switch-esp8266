@@ -105,6 +105,11 @@ html, body {
   position: relative;
   filter: drop-shadow(0 -1mm 8mm rgb(255, 0, 0)) drop-shadow(0 -1mm 6mm rgba(255, 0, 0, 0.5));
 }
+@media (prefers-color-scheme: dark) {
+  #led-form #led_list .field input[name=led__state]:checked + .field__image[data-led=red] .led__icon {
+    filter: drop-shadow(0 -1mm 8mm rgba(255, 255, 255, 0.5)) drop-shadow(0 -1mm 8mm rgb(255, 0, 0)) drop-shadow(0 -1mm 6mm rgba(255, 0, 0, 0.5));
+  }
+}
 #led-form #led_list .field input[name=led__state]:checked + .field__image[data-led=green] .led__icon {
   filter: drop-shadow(0 -1mm 8mm rgb(0, 255, 0)) drop-shadow(0 -1mm 6mm rgba(0, 255, 0, 0.5));
 }
@@ -116,24 +121,19 @@ html, body {
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
-@media (prefers-color-scheme: dark) {
-  #led-form #led_list .field .led__name {
-    --tone: 255;
-  }
-}
 @media (prefers-color-scheme: light) {
   #led-form #led_list .field .led__name {
-    --tone: 175;
+    --tone: 100;
   }
-}
-#led-form #led_list .field .led__name[for=green_led] {
-  color: rgb(0, var(--tone), 0);
-}
-#led-form #led_list .field .led__name[for=yellow_led] {
-  color: rgb(var(--tone), var(--tone), 0);
-}
-#led-form #led_list .field .led__name[for=red_led] {
-  color: rgb(var(--tone), 0, 0);
+  #led-form #led_list .field .led__name[for=green_led] {
+    color: rgb(0, var(--tone), 0);
+  }
+  #led-form #led_list .field .led__name[for=yellow_led] {
+    color: rgb(var(--tone), var(--tone), 0);
+  }
+  #led-form #led_list .field .led__name[for=red_led] {
+    color: rgb(var(--tone), 0, 0);
+  }
 }
 #led-form #led_list .field .field__image {
   position: absolute;

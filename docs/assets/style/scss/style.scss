@@ -143,9 +143,15 @@ html, body {
                     
                     &[data-led='red'] .led__icon{
                         position: relative;
-
+                        
                         filter: drop-shadow($offsetX $offsetY $blur rgb(255, 0, 0)) 
-                                drop-shadow($offsetX $offsetY calc($blur - 2mm) rgba(255, 0, 0, 0.5));;
+                                drop-shadow($offsetX $offsetY calc($blur - 2mm) rgba(255, 0, 0, 0.5));
+
+                        @media (prefers-color-scheme: dark) {
+                            filter: drop-shadow($offsetX $offsetY $blur rgba(255, 255, 255, 0.5))
+                            drop-shadow($offsetX $offsetY $blur rgb(255, 0, 0)) 
+                            drop-shadow($offsetX $offsetY calc($blur - 2mm) rgba(255, 0, 0, 0.5));
+                        }
                     }
                     &[data-led='green'] .led__icon{
                         filter: drop-shadow($offsetX $offsetY $blur rgb(0, 255, 0))
@@ -163,22 +169,20 @@ html, body {
                 font-family: 'Gugi', cursive;
                 text-transform: uppercase;
                 letter-spacing: 0.1em;
-                @media (prefers-color-scheme: dark) {
-                    --tone : 255;
-                }
+            
                 @media (prefers-color-scheme: light) {
-                    --tone : 175;
+                    --tone : 100;
+                    &[for="green_led"] {
+                        color: rgb(0, var(--tone), 0);
+                    }
+                    &[for="yellow_led"] {
+                        color: rgb(var(--tone), var(--tone), 0);
+                    }
+                    &[for="red_led"] {
+                        color: rgb(var(--tone), 0, 0);
+                    }
                 }
 
-                &[for="green_led"] {
-                    color: rgb(0, var(--tone), 0);
-                }
-                &[for="yellow_led"] {
-                    color: rgb(var(--tone), var(--tone), 0);
-                }
-                &[for="red_led"] {
-                    color: rgb(var(--tone), 0, 0);
-                }
             }
             
             .field__image {
