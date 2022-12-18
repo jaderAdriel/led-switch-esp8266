@@ -1,1 +1,2 @@
-# LED switch using ESP8266 board and firebase service
+# LED switch using the ESP8266 microcontroller
+
