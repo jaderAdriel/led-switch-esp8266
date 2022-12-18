@@ -12,12 +12,16 @@
 
 /* Spacing variable*/
 /*  colors variable */
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: rgb(31, 31, 31);
+    color: #ffffff;
+  }
+}
 html, body {
   width: 100%;
   height: fit-content;
   overflow: auto;
-  background-color: white;
-  color: #080808;
 }
 
 .main-wrapper {
@@ -37,27 +41,41 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 #led-form #led_list {
   width: 100%;
   max-width: 70em;
   height: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
   gap: 1em;
 }
 #led-form #led_list .field {
   position: relative;
-  height: 11em;
+  height: 15em;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 1.4em;
   border-radius: 5px;
-  box-shadow: rgba(3, 154, 229, 0.2) 0px 2px 8px 0px;
-  box-shadow: rgba(3, 154, 229, 0.2) 0px 1px 3px, rgba(3, 154, 229, 0.2) 0px 1px 2px;
-  background-color: rgba(255, 255, 255, 0.0941176471);
+}
+@media only screen and (max-width: 800px) {
+  #led-form #led_list .field {
+    height: 11em;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  #led-form #led_list .field {
+    box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 3px, rgba(255, 255, 255, 0.4) 0px 1px 2px;
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}
+@media (prefers-color-scheme: light) {
+  #led-form #led_list .field {
+    box-shadow: rgba(128, 128, 128, 0.4) 0px 1px 3px, rgba(128, 128, 128, 0.4) 0px 1px 2px;
+  }
 }
 #led-form #led_list .field .wrapper {
   position: relative;
@@ -98,14 +116,24 @@ html, body {
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
+@media (prefers-color-scheme: dark) {
+  #led-form #led_list .field .led__name {
+    --tone: 255;
+  }
+}
+@media (prefers-color-scheme: light) {
+  #led-form #led_list .field .led__name {
+    --tone: 175;
+  }
+}
 #led-form #led_list .field .led__name[for=green_led] {
-  color: green;
+  color: rgb(0, var(--tone), 0);
 }
 #led-form #led_list .field .led__name[for=yellow_led] {
-  color: rgb(138, 138, 43);
+  color: rgb(var(--tone), var(--tone), 0);
 }
 #led-form #led_list .field .led__name[for=red_led] {
-  color: rgb(182, 1, 1);
+  color: rgb(var(--tone), 0, 0);
 }
 #led-form #led_list .field .field__image {
   position: absolute;
@@ -142,9 +170,6 @@ html, body {
 .section.led-controls {
   width: 100%;
 }
-.section.led-controls h1 {
-  color: #039BE5;
-}
 
 main {
   min-height: 90vh;
@@ -168,7 +193,6 @@ main {
 .section.led-controls .content p, .section .content p {
   padding: 0 0 1.6em 0;
   font-family: "Gugi", Arial, Helvetica, sans-serif;
-  color: #313131;
 }
 
 #footer {
@@ -176,8 +200,18 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
   padding: 4em;
   padding-top: 2em;
-  background-color: #111111;
+  background-color: #2f2f2f;
   color: #FFF;
+}
+@media (prefers-color-scheme: dark) {
+  #footer {
+    background-color: #000000;
+  }
+}
+@media (prefers-color-scheme: light) {
+  #footer {
+    background-color: #2f2f2f;
+  }
 }
 @media only screen and (max-width: 600px) {
   #footer {
@@ -185,13 +219,12 @@ main {
   }
 }
 #footer #logo {
-  padding-top: 2em;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 #footer #logo__media {
   width: 100%;
+  max-width: 20em;
   height: auto;
 }
 #footer #credits {

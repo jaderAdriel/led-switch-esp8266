@@ -21,27 +21,38 @@ $pd-xl: 6em;
 
 /*  colors variable */
 $c-primary-100 : #039BE5;
-$c-primary-100-02 : rgba(3, 154, 229, 0.2);
 $c-secondary : #FFCA28;
 $c-tertiary : #FF8A65;
 
 $c-success : rgb(0, 255, 0);
 $c-error: rgb(255, 0, 0);
 $c-warning : rgb(255, 255, 0);
-$c-neutral : gray;
+$c-neutral-02 : rgba(128, 128, 128, 0.4);
+ 
+$c-background-theme-light : rgb(255, 255, 255);
+$c-text-theme-light : #000000;
+$c-subtitle-theme-light : #000000;
 
-$sys-c-background : #ffff;
-$sys-c-surface-100 : #f9f9f9;
-$sys-c-text : #080808;
-$sys-c-subtitle : #313131;
+$c-background-theme-dark : rgb(31, 31, 31);
+$c-text-theme-dark : #ffffff;
+$c-subtitle-theme-dark : #c8c8c8;
 
+@media (prefers-color-scheme: dark) {
+    
+    html, body {
+        background-color: $c-background-theme-dark;
+        color: $c-text-theme-dark;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    
+}
 
 html, body {
     width: 100%;
     height: fit-content;
     overflow: auto;
-    background-color: $sys-c-background;
-    color: $sys-c-text;
 }
 
 .main-wrapper {
@@ -62,6 +73,7 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 
     
     #led_list {
@@ -69,22 +81,32 @@ html, body {
         max-width: 70em;
         height: auto;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(12em, 1fr));
         gap: 1em;
 
         .field {
             position: relative;
-            height: 11em;
+            height: 15em;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             padding: 1.4em;
             border-radius: 5px;
-            box-shadow: $c-primary-100-02 0px 2px 8px 0px;
-            box-shadow: $c-primary-100-02 0px 1px 3px, $c-primary-100-02 0px 1px 2px;
-            background-color: #ffffff18;
             
+            @media only screen and (max-width: 800px) {
+                height: 11em;
+            }
+            @media (prefers-color-scheme: dark) {
+                box-shadow: rgb(255, 255, 255, 0.4) 0px 1px 3px,rgb(255, 255, 255, 0.4) 0px 1px 2px;
+                background-color: rgb(255, 255, 255, 0.05);
+                
+            }
+
+            @media (prefers-color-scheme: light) {
+                box-shadow: $c-neutral-02 0px 1px 3px,$c-neutral-02 0px 1px 2px;
+            }
+
             .wrapper {
                 position: relative;
                 width: 100%;
@@ -141,14 +163,21 @@ html, body {
                 font-family: 'Gugi', cursive;
                 text-transform: uppercase;
                 letter-spacing: 0.1em;
+                @media (prefers-color-scheme: dark) {
+                    --tone : 255;
+                }
+                @media (prefers-color-scheme: light) {
+                    --tone : 175;
+                }
+
                 &[for="green_led"] {
-                    color: green;
+                    color: rgb(0, var(--tone), 0);
                 }
                 &[for="yellow_led"] {
-                    color: rgb(138, 138, 43);
+                    color: rgb(var(--tone), var(--tone), 0);
                 }
                 &[for="red_led"] {
-                    color: rgb(182, 1, 1);
+                    color: rgb(var(--tone), 0, 0);
                 }
             }
             
@@ -191,9 +220,6 @@ html, body {
 
 .section.led-controls {
     width: 100%;
-    h1 {
-        color: $c-primary-100;
-    }
 }
 
 main {
@@ -217,7 +243,6 @@ main {
         p {
             padding: 0 0 1.6em 0;
             font-family: 'Gugi', Arial, Helvetica, sans-serif;
-            color: $sys-c-subtitle;
         }
     }
 }
@@ -233,19 +258,26 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
     padding: 4em;
     padding-top: 2em;
-    background-color: #111111;
+    background-color: #2f2f2f;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #000000;
+    }
+    @media (prefers-color-scheme: light) {
+        background-color: #2f2f2f;
+    }
+
     color: #FFF;
 
     @media only screen and (max-width: 600px) {
         padding: 1em;
     }
     #logo {
-        padding-top: 2em;
         display: flex;
         justify-content: center;
-        align-items: center;
         &__media {
             width: 100%;
+            max-width: 20em;
             height: auto;
         }
     }
