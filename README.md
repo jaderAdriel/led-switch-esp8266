@@ -1,1 +1,1 @@
-# Led Switcher using the board esp8266 and the service firebase
+# LED switch using ESP8266 board and firebase service
